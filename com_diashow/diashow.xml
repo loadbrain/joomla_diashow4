@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="component" version="1.5.0">
+	<name>DiaShow</name>
+	<creationDate>06/04/2009</creationDate>
+	<author>Ralf Weber - LoadBrain</author>
+	<authorEmail>info@loadbrain.de</authorEmail>
+	<authorUrl>http://www.weberr.de</authorUrl>
+	<copyright>This component in released under the GNU/GPL License</copyright>
+	<license>GPL</license>
+	<version>4.0.0</version>
+	<description><![CDATA[DiaShow is a native Joomla 1.5 Component to display diashows defined on your page]]></description>
+
+
+  <installfile>install.diashow.php</installfile>
+  <uninstallfile>uninstall.diashow.php</uninstallfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install.sql</file>
+		</sql>
+	</install>
+	
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">uninstall.sql</file>
+		</sql>
+	</uninstall>
+
+	<administration>
+		<menu img="components/com_diashow/images/diashow_icon.png"><![CDATA[DIASHOW_NAME]]></menu>
+		<submenu>
+			<menu img="components/com_diashow/images/diashow_manage.png" link="option=com_diashow&amp;controller=managediashows&amp;task=view"><![CDATA[MANAGE DIASHOWS]]></menu> 
+			<menu img="components/com_diashow/images/diashow_upload.png" link="option=com_diashow&amp;controller=manageuploaddiashows&amp;task=view"><![CDATA[UPLOAD DIASHOWS]]></menu> 
+			<menu img="components/com_diashow/images/diashow_about.png" link="option=com_diashow&amp;controller=about&amp;task=view"><![CDATA[ABOUT]]></menu>
+		</submenu>
+
+		<files folder="admin">
+			<filename>install.sql</filename>
+			<filename>uninstall.sql</filename>
+			<filename>admin.diashow.php</filename>
+			<filename>controller.php</filename>
+			<filename>controllers/index.html</filename>
+			<filename>controllers/about.php</filename>
+			<filename>controllers/managediashows.php</filename>
+			<filename>controllers/manageuploaddiashows.php</filename>
+			<filename>css/diashow.css</filename>
+			<filename>css/index.html</filename>
+			<filename>models/index.html</filename>
+			<filename>models/diashowmanagediashows.php</filename>
+			<filename>models/diashowmanageuploaddiashows.php</filename>
+			<filename>views/index.html</filename>
+			<filename>views/diashowabout/index.html</filename>
+			<filename>views/diashowabout/view.html.php</filename>
+			<filename>views/diashowabout/tmpl/index.html</filename>
+			<filename>views/diashowabout/tmpl/formabout.php</filename>
+			<filename>views/diashowmanagediashows/index.html</filename>
+			<filename>views/diashowmanagediashows/view.html.php</filename>
+			<filename>views/diashowmanagediashows/tmpl/index.html</filename>
+			<filename>views/diashowmanagediashows/tmpl/formmanagediashows.php</filename>
+			<filename>views/diashowmanagediashows/tmpl/formmanageeditdiashows.php</filename>
+			<filename>views/diashowmanageuploaddiashows/index.html</filename>
+			<filename>views/diashowmanageuploaddiashows/view.html.php</filename>
+			<filename>views/diashowmanageuploaddiashows/tmpl/index.html</filename>
+			<filename>views/diashowmanageuploaddiashows/tmpl/formuploaddiashows.php</filename>
+			<filename>tables/index.html</filename>
+			<filename>tables/diashow.php</filename>
+			<filename>tables/diashow_visibility.php</filename>
+			<filename>images/admin_loadbrain.gif</filename>
+			<filename>images/diashow.png</filename>
+			<filename>images/diashow_about.png</filename>		
+			<filename>images/diashow_icon.png</filename>	
+			<filename>images/diashow_manage.png</filename>		
+			<filename>images/diashow_upload.png</filename>	
+		</files>
+    <languages>
+      <language tag="de-DE">admin/languages/de-DE.com_diashow.ini</language>
+      <language tag="de-DE">admin/languages/de-DE.com_diashow.menu.ini</language>
+      <language tag="en-GB">admin/languages/en-GB.com_diashow.ini</language>
+      <language tag="en-GB">admin/languages/en-GB.com_diashow.menu.ini</language>
+    </languages>				
+	</administration>
+</install>
