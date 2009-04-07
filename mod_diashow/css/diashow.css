@@ -1,0 +1,73 @@
+#ds_container{
+	position: absolute;
+	background-color: black;
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	overflow: hidden;
+}
+
+#ds_img{
+	position: relative;
+	top:0px;
+	left: 0px;
+}
+
+.ds_image{
+	border: none;
+}
+
+.ds_hint {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	background-color: black;
+	color: #FFFFFF;
+	width: auto;
+	height: 0px;
+	z-index:1;
+	text-align: center;	
+}
+
+.ds_href{
+	text-decoration: none;
+}
+
+.ds_text{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 2px;
+}
+
+#hint_hidden {
+	opacity: 0;
+	cursor: text;
+}
+
+#ds_fullView{
+	position: relative;
+	top: 200px;
+	left: 200px;
+	border: 1px solid #000000;
+	display: none;
+	width: 0px;
+	height: 0px;
+}
+
+#ds_tooltip {
+	position: relative;
+	display: block;
+}
+#tooltip {
+	position:absolute;
+	border:1px dashed #333;
+	background: #7F7F7F;
+	padding:2px 5px;
+	color:#FFFFFF;
+	display:none;
+	font-family: Arial;
+	font-size: 10px;
+	font-weight: bold;
+	}
