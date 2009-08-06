@@ -78,6 +78,10 @@ table.admintable td.key
 			<img src="./components/com_diashow/images/admin_loadbrain.gif" alt="" width="120" height="120" border="0" vspace="5" hspace="5">
 			<br/><a href="http://www.loadbrain.de/" target="_blank">LoadBrain &copy;</a>
 			<h4>HISTORY</h4>
+			<p>Version 4.0.1 (06.08.2009)</p>
+			<ul>
+				<li>+ If only one image is in the show there is no animation</li>
+			</ul>
 			<p>Version 4.0.0 (06.04.2009)</p>
 			<ul>
 				<li>First Release</li>
