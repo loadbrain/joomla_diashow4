@@ -30,17 +30,6 @@
 			</schemas>
 	</update>	
 	
-	<install>
-		<sql>
-			<file driver="mysql" charset="utf8">install.sql</file>
-		</sql>
-	</install>
-	
-	<uninstall>
-		<sql>
-			<file driver="mysql" charset="utf8">uninstall.sql</file>
-		</sql>
-	</uninstall>
 
         <!-- Site Main File Copy Section -->
         <!-- Note the folder attribute: This attribute describes the folder
@@ -64,7 +53,6 @@
             <files folder="admin">
 				<!-- Admin Main File Copy Section -->
 				<filename>index.html</filename>
-				<filename>config.xml</filename>
 				<filename>access.xml</filename>
 				<filename>diashow.php</filename>
 				<filename>controller.php</filename>
