@@ -22,30 +22,16 @@ defined('_JEXEC') or die('Restricted Access');
 	<tr>
 		<td><h3><?php echo JText::_('COM_DIASHOW_UPLOAD_EXISTING_IMAGES'); ?></h3></td>
 	</tr>
-
-	<tr class="row<?php echo $i % 2; ?>">
+	</table>
 
 <?php
-
-echo "<table border='0' cellspacing='5' cellpadding='5' width='100%'><tr>";
-foreach($this->images as $i => $item){
-	//if (!preg_match("/\@rwcards/", $item)){
-?>
-                	<td><img src="../images/diashow/<?php echo $item; ?>" style="border:1px solid black; margin:10px;" /></td>
-       <?php
-       $i++;
-       	echo ($i % $adminimagesperrow == 0) ? "</tr><tr class='row" . $i % 2 . "'>" : "";
-       ?>
-<?php
-	//}
-}
-echo "</table>";
+				$i=0;
 				$breite = 160;
 				$hoehe = 120; 
 				echo "<table border='0' cellspacing='5' cellpadding='5' width='100%'><tr>";
-				foreach ($this->diashowImages as $val)
+				foreach ($this->images as $val)
 				{
-					$size = getimagesize(JPATH_ROOT . "/images/stories/diashow/" . $val);
+					$size = getimagesize(JPATH_ROOT . "/images/diashow/" . $val);
 				   // zugross & quer
 				   if ($size[0] > $breite && $size[1] > $hoehe  && $size[0] >= $size[1]) 
 				   {
@@ -87,7 +73,7 @@ echo "</table>";
 
 if (preg_match("/jpg$|gif$|png$/", $val))
 {
-echo "<td><img src='../images/stories/diashow/" . $val . "' width=' . $sizemin[0]  . ' height=' . $sizemin[1] . ' align=top style='padding:5px; margin:5px; border:1px solid black; background-color:#ffffff;'><br>" . JText::_( 'UPLOAD_IMAGE_NAME' ) . ": " .  $val . "</td>";					
+echo "<td><img src='../images/diashow/" . $val . "' width=' . $sizemin[0]  . ' height=' . $sizemin[1] . ' align=top style='padding:5px; margin:5px; border:1px solid black; background-color:#ffffff;'><br>" . JText::_( 'UPLOAD_IMAGE_NAME' ) . ": " .  $val . "</td>";					
 $i++;
 }
 				
