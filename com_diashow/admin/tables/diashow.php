@@ -1,51 +1,42 @@
 <?php
-/**
- * DiaShow
- * @author Ralf Weber (email ralf@weberr.de / site www.weberr.de)
- * @package DiaShow
- * @version     $Id$
- * @copyright Copyright (C) 2008 LoadBrain
- * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
- *
- * This is free software
- **/
-
-// no direct access
+// No direct access
 defined('_JEXEC') or die('Restricted access');
 
+// import Joomla table library
+jimport('joomla.database.table');
 
-class Tablediashow  extends JTable
+/**
+ * DiaShow Table class
+ */
+class DiaShowTableDiaShow extends JTable
 {
-	/**
-	 * Primary Key
-	 *
-	 * @var int
-	 */
-	var $id = null;
-	/** @var string*/
-	var $title = '';	
-	/** @var string */
-	var $image = '';
-	/** @var string */
-	var $link = '';	
-	/** @var string */
-	var $target = '';	
-	/** @var int */
-	var $checked_out		= 0;
-	/** @var date */
-	var $checked_out_time	= 0;
-	/** @var int */
-	var $published			= 1;	
-	/** @var int */
-	var $ordering			= 1;
-
 	/**
 	 * Constructor
 	 *
 	 * @param object Database connector object
 	 */
-	function __construct(& $db) {
+	function __construct(&$db){
 		parent::__construct('#__diashow', 'id', $db);
 	}
+
+	/**
+	 * Overloaded bind function
+	 *
+	 * @param       array           named array
+	 * @return      null|string     null is operation was satisfactory, otherwise returns an error
+	 * @see JTable:bind
+	 * @since 1.5
+	 */
+	public function bind($array, $ignore = ''){
+		if (isset($array['params']) && is_array($array['params'])){
+			// Convert the params field to a string.
+			$parameter = new JRegistry;
+			$parameter->loadArray($array['params']);
+			$array['params'] = (string)$parameter;
+		}
+		return parent::bind($array, $ignore);
+	}
+
+
 }
 ?>
