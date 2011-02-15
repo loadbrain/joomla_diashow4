@@ -1,28 +1,31 @@
 <?php
-/**
-* DiaShow default controller
-* 
-* @author Ralf Weber  <ralf@weberr.de>
-* @version 2.0
-* @copyright Copyright (c) 2007, LoadBrain
-* @link http://www.weberr.de/
-*
-* @license GNU/GPL
-*/
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
+// import Joomla controller library
 jimport('joomla.application.component.controller');
 
-class DiaShowController extends JController
-{
-	/**
-	 * Method to display the view
-	 *
-	 * @access	public
-	 */
-	function display()
-	{
-		parent::display();
-	}
+/**
+ * General Controller of Diashow component
+ */
+class DiashowController extends JController{
+        /**
+         * display task
+         *
+         * @return void
+         */
+        function display($cachable = false){
+                // set default view if not set
+                JRequest::setVar('view', JRequest::getCmd('view', 'diashows'));
 
+                // call parent behavior
+                parent::display($cachable);
+
+                // Set the submenu
+                DiashowHelper::addSubmenu('messages');
+
+        }
 }
+
+
 ?>
