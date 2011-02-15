@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>DiaShow4 Module</name>
+	<author>Ralf weber</author>
+	<creationDate>25.03.2009</creationDate>
+	<copyright>(C) 2008 LoadBrain. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>ralf@weberr.de</authorEmail>
+	<authorUrl>www.weberr.de</authorUrl>
+	<version>4.0.1</version>
+	<description>DiaShow4 Module - &#169; 2009 by Ralf Weber - LoadBrain</description>
+
+	<files>
+		<filename module="mod_diashow">mod_diashow.php</filename>
+		<filename>css/diashow.css</filename>
+        <filename>js/jquery.diashow.min.js</filename>
+		<filename>js/jquery.mousewheel.min.js</filename>
+		<filename>js/jquery.timers.min.js</filename>
+		<filename>js/jquery-1.3.2.min.js</filename>
+		 <filename>tmpl/default.php</filename>
+		 <filename>tmpl/index.html</filename>
+         <filename>helper.php</filename>
+		 <filename>index.html</filename>
+         <filename>mod_diashow.xml</filename>
+        </files>
+	
+	<params>
+		<param name="hint" type="textarea" size="200" cols="35" default="All pictures must have the same height and width!" label="IMPORTANT HINT" description="The width of the slideshow container (implied in px). Set it to accommodate the largest image within the slideshow" />
+		<param name="slideshow_width" type="text" default="100" label="width of the slideshow" description="All pictures must have the same height and width!" />
+		<param name="slideshow_height" type="text" default="200" label="height of the slideshow" description="All pictures must have the same height and width!" />
+		<param name="containerBorder" type="text" default="2px dotted black" label="CSS for border of container" description="CSS for border of container." />
+		<param name="hintHeight" type="text" default="25px" label="The heigth of the hint for the text" description="The heigth of the hint for the text" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+        <param name="delay" type="text" default="3000" label="Delay between image change, in milliseconds (ie: 3000 = 3 seconds)" description="Delay between image change, in milliseconds (ie: 3000 = 3 seconds)" />
+		<param name="optionalRandomOrder" type="radio" default="R" label="Show pictures in random order" description="An optional parameter specifying whether to randomize the display order of the images. Set it to R to randomize, or remove this parameter (unset) to not.">
+			<option value="R">Random order</option>
+			<option value="C">In correct order</option>
+		</param>		
+		<param name="@spacer" type="spacer" default="" label="Full Image Preview Configuration" description="" />
+		<param name="showIt" type="radio" default="1" label="Show the image in full size on triggering mousewheel while mouseover?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>		
+		<param name="xPos" type="text" default="30px" label="The xpos of the full image relative to the container" description="The xpos of the full image relative to the container" />
+		<param name="yPos" type="text" default="30px" label="The ypos of the full image relative to the container" description="The ypos of the full image relative to the container" />	
+
+		<param name="height" type="text" default="200px" label="The height of the full image" description="The heigth of the full image" />	
+		<param name="width" type="text" default="200px" label="The width of the full image" description="The width of the full image" />	
+		<param name="borderCss" type="text" default="1px dashed black" label="The css for the hint to view the full image" description="The css for the hint to view the full image" />
+	</params>
+</install>
+
