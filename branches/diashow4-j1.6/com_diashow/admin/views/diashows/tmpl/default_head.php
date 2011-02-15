@@ -17,22 +17,22 @@ $saveOrder	= 'ordering';
         <?php }?>
         </th>
         <th>
-                <?php echo JText::_('COM_DIASHOW_DIASHOW_AUTOR'); ?>
-        </th>
-        <th>
-                <?php echo JText::_('COM_DIASHOW_DIASHOW_EMAIL'); ?>
-        </th>
-        <th>
-                <?php echo JText::_('COM_DIASHOW_DIASHOW_DESCRIPTION'); ?>
+                <?php echo JText::_('COM_DIASHOW_DIASHOW_HEADING_TITLE'); ?>
         </th>
         <th>
                 <?php echo JText::_('COM_DIASHOW_DIASHOW_HEADING_IMAGE'); ?>
         </th>
         <th>
-                <?php echo JText::_('COM_DIASHOW_CAT_HEADING_PUBLISHED'); ?>
+                <?php echo JText::_('COM_DIASHOW_DIASHOW_HEADING_LINK'); ?>
         </th>
         <th>
-                <?php echo JText::_('COM_DIASHOW_CAT_HEADING_CATEGORY'); ?>
+                <?php echo JText::_('COM_DIASHOW_DIASHOW_HEADING_TARGET'); ?>
+        </th>
+        <th>
+                <?php echo JText::_('COM_DIASHOW_HEADING_SHOW_UNDER'); ?>
+        </th>
+        <th>
+                <?php echo JText::_('COM_DIASHOW_HEADING_PUBLISHED'); ?>
         </th>
         <th>
             <?php echo JHtml::_('grid.sort',  'JGRID_HEADING_ORDERING', 'ordering', $listDirn, $listOrder);
