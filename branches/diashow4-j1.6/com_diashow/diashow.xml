@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="1.6.0" method="upgrade">
-	<name>DiaShow</name>
-	<creationDate>15/02/2011</creationDate>
-	<author>Ralf Weber - LoadBrain</author>
-	<authorEmail>ralf@weberr.de</authorEmail>
-	<authorUrl>http://www.weberr.de</authorUrl>
-	<copyright>This component in released under the GNU/GPL License</copyright>
-	<license>GPL</license>
-	<version>4.1.0</version>
-	<description><![CDATA[DiaShow is a native Joomla 1.6 Component to display diashows defined on your page]]></description>
 
+        <name>COM_DIASHOW</name>
+        <!-- The following elements are optional and free of formatting conttraints -->
+        <creationDate>February 2011</creationDate>
+        <author>Ralf Weber</author>
+        <authorEmail>ralf@weberr.de</authorEmail>
+        <authorUrl>http://www.weberr.de</authorUrl>
+        <copyright>Copyright Info</copyright>
+        <license>License Info</license>
+        <!--  The version string is recorded in the components table -->
+        <version>4.1.0</version>
+        <!-- The description is optional and defaults to the name -->
+        <description>COM_DIASHOW_DESCRIPTION</description>
 
-	<!-- Runs on install/uninstall/update; New in 1.6 -->
-	<scriptfile>script.php</scriptfile>
-	
-	<install> <!-- Runs on install -->
-			<sql>
-					<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
-			</sql>
-	</install>
-	<uninstall> <!-- Runs on uninstall -->
-			<sql>
-					<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
-			</sql>
-	</uninstall>
-	<update> <!-- Runs on update; New in 1.6 -->
-			<schemas>
-					<schemapath type="mysql">sql/updates/mysql</schemapath>
-			</schemas>
-	</update>	
-	
+		<!-- Runs on install/uninstall/update; New in 1.6 -->
+		<scriptfile>script.php</scriptfile>
+		
+		<install> <!-- Runs on install -->
+				<sql>
+						<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+				</sql>
+		</install>
+		<uninstall> <!-- Runs on uninstall -->
+				<sql>
+						<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+				</sql>
+		</uninstall>
+		<update> <!-- Runs on update; New in 1.6 -->
+				<schemas>
+						<schemapath type="mysql">sql/updates/mysql</schemapath>
+				</schemas>
+		</update>	
 
         <!-- Site Main File Copy Section -->
         <!-- Note the folder attribute: This attribute describes the folder
                 to copy FROM in the package to install therefore files copied
                 in this section are copied from /site/ in the package -->
         <files folder="site">
+			<filename>index.html</filename>
         </files>
         <media destination="com_diashow" folder="media">
                 <filename>index.html</filename>
@@ -71,10 +74,6 @@
 				<folder>css</folder>	
 				<folder>language</folder>
                 </files>
-                <!--<languages folder="admin">
-                        <language tag="en-GB">language/en-GB/en-GB.com_rwcards.ini</language>
-                        <language tag="en-GB">language/en-GB/en-GB.com_rwcards.sys.ini</language>
-                </languages>-->
         </administration>		
 
 </extension>
