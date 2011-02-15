@@ -51,12 +51,11 @@ class DiashowViewDiashows extends JView{
 		$user		= JFactory::getUser();
 		$this->canDo		= DiashowHelper::getActions($this->state->get('filter.id'));
 
-		JToolBarHelper::title(JText::_('COM_DIASHOW_MANAGER_RWCARDS'));
+		JToolBarHelper::title(JText::_('COM_DIASHOW_MANAGER_DIASHOWS'));
 		if ($this->canDo->get('core.edit')){
 			JToolBarHelper::deleteListX('', 'diashows.delete');
 			JToolBarHelper::editListX('diashow.edit');
 			JToolBarHelper::addNewX('diashow.add');
-			JToolBarHelper::preferences('COM_DIASHOW');
 		}
 	}
 

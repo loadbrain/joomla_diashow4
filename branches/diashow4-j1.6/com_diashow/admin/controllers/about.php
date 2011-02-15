@@ -8,13 +8,14 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * DiashowControllerAbout Controller
  */
-class DiashowControllerAbout extends JControllerAdmin
-{
+class DiashowControllerAbout extends JControllerAdmin{
+
         /**
          * Proxy for getModel.
          * @since       1.6
          */
         public function getModel($name = 'Diashow', $prefix = 'DiashowModel'){
+			
                 $model = parent::getModel($name, $prefix, array('ignore_request' => true));
                 return $model;
         }
