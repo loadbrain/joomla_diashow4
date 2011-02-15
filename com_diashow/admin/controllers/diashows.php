@@ -6,16 +6,16 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controlleradmin');
 
 /**
- * DiashowControllerAbout Controller
+ * DiashowControllerDiashows Controller
  */
-class DiashowControllerAbout extends JControllerAdmin
-{
+class DiashowControllerDiashows extends JControllerAdmin{
         /**
          * Proxy for getModel.
          * @since       1.6
          */
         public function getModel($name = 'Diashow', $prefix = 'DiashowModel'){
                 $model = parent::getModel($name, $prefix, array('ignore_request' => true));
+
                 return $model;
         }
 
