@@ -12,7 +12,9 @@ JHtml::_('behavior.formvalidation');
 <div class="width-60 fltlft">
 <fieldset class="adminform"><legend><?php echo JText::_( 'COM_DIASHOW_DETAILS' ); ?></legend>
 <ul class="adminformlist">
-<?php foreach($this->form->getFieldset('details') as $field): ?>
+<?php
+var_dump($this->menu);
+foreach($this->form->getFieldset('details') as $field): ?>
 	<li><?php echo $field->label;echo $field->input;?></li>
 	<?php
 	if($field->type == 'ImageList'){

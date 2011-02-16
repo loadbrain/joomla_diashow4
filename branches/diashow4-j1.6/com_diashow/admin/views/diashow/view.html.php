@@ -19,7 +19,7 @@ class DiashowViewDiashow extends JView
 		protected $state = null;
 		protected $item = null;
 		protected $tmpl;
-		 protected $cardsCat = null;
+		protected $menu = null;
 
         /**
          * display method of Hello view
@@ -29,12 +29,10 @@ class DiashowViewDiashow extends JView
 
                 // get the Data
                 $form = $this->get('Form');
-
                 $item = $this->get('Item');
                 $script = $this->get('Script');
-                $this->state	= $this->get('State');
-               // $this->cardsCat = $this->get('', $item->category_id);
-
+                $this->state = $this->get('State');
+				$this->menu = $this->get('Menu');
 
 
                 // Check for errors.
