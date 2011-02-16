@@ -75,12 +75,58 @@ class DiashowModelDiashow extends JModelAdmin{
 	protected function canDelete($record){
 		$user = JFactory::getUser();
 
-		if (!empty($record->catid)) {
+		if (!empty($record->id)) {
 			return $user->authorise('core.delete', 'com_diashow');
 		}
 		else {
 			return parent::canDelete($record);
 		}
-	}		
+	}
+
+
+	/**
+	 * Method to get the menu entries
+	 * @return string       Script files
+	 */
+	public function getMenu(){
+		$menus = array();
+		$data = $this->loadFormData();
+
+		$menus[] = JHTML::_( 'select.option', '0', 'All');
+
+		$query ="SELECT id , alias , menutype FROM #__menu where published = '1' order by  menutype, ordering";
+		$this->_db->setQuery( $query );
+		$this->_rows = $this->_db->loadObjectList();
+
+
+		foreach($this->_rows as $menu)
+		{
+			$menus[] = JHTML::_( 'select.option', $menu->id, $menu->alias . " \t\t\t => " . $menu->menutype . "");
+		}
+
+		$query = "SELECT #__menu.id as value , #__menu.alias, #__menu.menutype FROM #__diashow_visibility LEFT JOIN #__menu ON #__menu.id = menu_id WHERE diashow_id = '" . $data->id . "'";
+
+		$this->_db->setQuery( $query );
+		$this->_selectedMenu = $this->_db->loadObjectList();
+		 // if ALL is marked as where to show, set option selected
+		 if (isset($this->_selectedMenu))
+		 {
+			 foreach ($this->_selectedMenu as $val)
+			 {
+				if (!isset($val->value) )
+			  	{
+			 	$val->value = "0";
+			    $val->menutype = "ALL";
+			    $val->name = "All";
+			  	}
+		 	}
+		 }
+
+		$lists['menus'] = JHTML::_('select.genericlist', $menus, "wheretolink[]", "class=\"inputbox\" multiple=\"true\"" , 'value', 'text',  $this->_selectedMenu);
+
+		$this->_data['lists'] = $lists;
+
+		return $this->_data;
+	}
 }
 ?>
