@@ -25,10 +25,36 @@ class DiashowModelDiashow extends JModelAdmin{
 	
 	
 	function save(){
+	
+		$db =& JFactory::getDBO();
+		$data = JRequest::get( 'post' );
+
 		$diashowTable = $this->getTable();
 		$diashowVisTable = JTable::getInstance('Diashow_visibility', 'DiashowTable');
-		var_dump($diashowVisTable);
-		exit;
+		$row =& $this->getTable('diashow');
+		if ($data["jform"]['id']){
+		
+			$query = "delete from #__diashow_visibility where #__diashow_visibility.diashow_id = '" . (int)$data["jform"]['id'] . "'";
+			$this->_db->setQuery( $query );
+			$this->_db->loadObjectList();
+				
+			foreach ($data['wheretolink'] as $val)
+			{
+				$query = "insert into #__diashow_visibility (diashow_id, menu_id) values ('" . $data["jform"]['id'] . "', '" . $val . "')";
+				$this->_db->setQuery( $query );
+				$this->_db->loadObjectList();
+			}
+		}
+		else
+		{
+			foreach ($data['wheretolink'] as $val)
+			{
+				$query = "insert into #__diashow_visibility (diashow_id, menu_id) values ('" . $row->id . "', '" . $val . "')";
+				$this->_db->setQuery( $query );
+				$this->_db->loadObjectList();
+			}
+		}	
+		return true;
 	}
 	/**
 	 * Method to get the record form.
