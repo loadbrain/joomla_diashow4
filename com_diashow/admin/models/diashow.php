@@ -22,6 +22,14 @@ class DiashowModelDiashow extends JModelAdmin{
 
 		return JTable::getInstance($type, $prefix, $config);
 	}
+	
+	
+	function save(){
+		$diashowTable = $this->getTable();
+		$diashowVisTable = JTable::getInstance('Diashow_visibility', 'DiashowTable');
+		var_dump($diashowVisTable);
+		exit;
+	}
 	/**
 	 * Method to get the record form.
 	 *
