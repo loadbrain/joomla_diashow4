@@ -94,6 +94,42 @@ class DiashowModelDiashows extends JModelList{
 		return JTable::getInstance($type, $prefix, $config);
 	}
 
+	
+	public function getMenuEntries(){
+		// Create a new query object.
+		$db = JFactory::getDBO();
+		$query = $db->getQuery(true);
+		// Select some fields
+		$query->select('#__diashow.*');
+		$query->from('#__diashow');
+		$query->order('ordering');
+		$this->_data['rows'] = $db->loadObjectList();
+		$linkedTo = array();
+		
+		// Put the corresponding menus in the array
+		for ($i=0, $n=count( $this->_data['rows'] ); $i < $n; $i++)
+		{
+			$row = &$this->_data['rows'];
+			
+			$query = "SELECT distinct alias, menutype, diashow_id, menu_id FROM #__diashow_visibility LEFT JOIN  #__menu ON #__menu.id = menu_id WHERE diashow_id = " . $row[$i]->id . " order by #__menu.menutype, #__menu.ordering";
+			//echo $query;
+			$this->_db->setQuery( $query );
+			$this->_whereToShow = $this->_db->loadObjectList();
+
+		
+			for ($a=0, $b=count( $this->_whereToShow ); $a < $b; $a++)
+			{
+				$row = &$this->_whereToShow;
+				if ($row[$a]->menu_id == 0)
+				{
+					$linkedTo[$i]  .= JText::_( 'DIASHOW_SHOW_ON_ALL_PAGES') . "<br />";
+				continue;
+				}
+					$linkedTo[$i] .= $row[$a]->alias . " (" . $row[$a]->menutype . ")<br />"; 
+			}
+		}
+		return $linkedTo;
+	}
 
 
 	public function getImages(){

@@ -26,20 +26,20 @@ $ordering	= ($listOrder == 'ordering');?>
                 <?php if ($this->canDo->get('core.edit')){ ?>
 		                <a href="<?php echo JRoute::_('index.php?option=com_diashow&task=diashow.edit&id='.$item->id);?>">
                 <?php }
-                        echo JTEXT::_($item->title); ?>
+                        echo $item->title; ?>
                         </a>
                 </td>
                 <td>
                         <?php echo "<img src='../images/diashow/" .  $item->image . "' />"; ?>
                 </td>
                 <td>
-                        <?php echo JTEXT::_($item->link); ?>
+                        <?php echo $item->link; ?>
                 </td>
                 <td>
-                        <?php echo JTEXT::_($item->target); ?>
+                        <?php echo $item->target; ?>
                 </td>
-                <td>
-                        <?php echo JTEXT::_($item->menu); ?>
+                <td width="300">
+                        <?php echo $this->menu[$i]; ?>
                 </td>
                 <td align="center">
                         <?php echo  JHtml::_('jgrid.published', $item->published, $i, 'diashow.'); ?>
