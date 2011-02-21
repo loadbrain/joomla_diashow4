@@ -8,7 +8,7 @@ jimport('joomla.database.table');
 /**
  * DiashowTableDiashow_visibility Table class
  */
-class DiashowTableDiashow_visibility  extends JTable´{
+class DiashowTableDiashow_visibility  extends JTable{
         /**
          * Constructor
          *
