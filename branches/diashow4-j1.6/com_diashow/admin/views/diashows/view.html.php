@@ -20,6 +20,7 @@ class DiashowViewDiashows extends JView{
 		$this->state	= $this->get('State');
 		$pagination = $this->get('Pagination');
 		$this->state = $this->get('State');
+		$this->menu = $this->get('MenuEntries');
 		//$this->get('CreateThumbnails');
 
 		// Check for errors.
