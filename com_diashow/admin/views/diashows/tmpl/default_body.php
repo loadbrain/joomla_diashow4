@@ -42,16 +42,16 @@ $ordering	= ($listOrder == 'ordering');?>
                         <?php echo $this->menu[$i]; ?>
                 </td>
                 <td align="center">
-                        <?php echo  JHtml::_('jgrid.published', $item->published, $i, 'diashow.'); ?>
+                        <?php echo  JHtml::_('jgrid.published', $item->published, $i, 'diashows.'); ?>
                 </td>
                 <td>
 				<?php if ($saveOrder) {
 						if ($listDirn == 'asc') {
-							echo '<span>'. $this->pagination->orderUpIcon($i, true, $cntx.'.orderup', 'JLIB_HTML_MOVE_UP', $ordering).'</span>';
-							echo '<span>'.$this->pagination->orderDownIcon($i, $this->pagination->total, true, $cntx.'.orderdown', 'JLIB_HTML_MOVE_DOWN', $ordering).'</span>';
+							echo '<span>'. $this->pagination->orderUpIcon($i, true, 'diashows.orderup', 'JLIB_HTML_MOVE_UP', $ordering).'</span>';
+							echo '<span>'.$this->pagination->orderDownIcon($i, $this->pagination->total, true, 'diashows.orderdown', 'JLIB_HTML_MOVE_DOWN', $ordering).'</span>';
 						} else if ($listDirn == 'desc') {
-							echo '<span>'. $this->pagination->orderUpIcon($i, true, $cntx.'.orderdown', 'JLIB_HTML_MOVE_UP', $ordering).'</span>';
-							echo '<span>'.$this->pagination->orderDownIcon($i, $this->pagination->total, true, $cntx.'.orderup', 'JLIB_HTML_MOVE_DOWN', $ordering).'</span>';
+							echo '<span>'. $this->pagination->orderUpIcon($i, true, 'diashows.orderdown', 'JLIB_HTML_MOVE_UP', $ordering).'</span>';
+							echo '<span>'.$this->pagination->orderDownIcon($i, $this->pagination->total, true, 'diashows.orderup', 'JLIB_HTML_MOVE_DOWN', $ordering).'</span>';
 						}
 					}
 					$disabled = $saveOrder ?  '' : 'disabled="disabled"';

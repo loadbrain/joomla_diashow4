@@ -29,29 +29,36 @@ class DiashowModelDiashow extends JModelAdmin{
 		$db =& JFactory::getDBO();
 		$data = JRequest::get( 'post' );
 
-		$diashowTable = $this->getTable();
+		$row = $this->getTable();
 		$diashowVisTable = JTable::getInstance('Diashow_visibility', 'DiashowTable');
-		$row =& $this->getTable('diashow');
-		if ($data["jform"]['id']){
-		
+		//$row =& $this->getTable('diashow');
+		//var_dump($data); exit;
+		if ($data["jform"]["id"] != ""){
+			$row->load($data['jform']['id']);
+			$row->bind($data['jform']);
+			$row->store();
 			$query = "delete from #__diashow_visibility where #__diashow_visibility.diashow_id = '" . (int)$data["jform"]['id'] . "'";
-			$this->_db->setQuery( $query );
-			$this->_db->loadObjectList();
+			$db->setQuery( $query );
+			$db->loadObjectList();
 				
 			foreach ($data['wheretolink'] as $val)
 			{
 				$query = "insert into #__diashow_visibility (diashow_id, menu_id) values ('" . $data["jform"]['id'] . "', '" . $val . "')";
-				$this->_db->setQuery( $query );
-				$this->_db->loadObjectList();
+				$db->setQuery( $query );
+				$db->loadObjectList();
 			}
 		}
 		else
 		{
+			$query = "insert into #__diashow (title, image, link, target, published) values ('". $data['jform']['title'] . "', '" . $data['jform']['image'] . "', '". $data['jform']['link'] . "', '" . $data['jform']['target'] . "', '". $data['jform']['published']. "')";
+			$db->setQuery($query);
+			$db->loadObjectList();	
+			$diaShowId = $db->insertid();
 			foreach ($data['wheretolink'] as $val)
 			{
-				$query = "insert into #__diashow_visibility (diashow_id, menu_id) values ('" . $row->id . "', '" . $val . "')";
-				$this->_db->setQuery( $query );
-				$this->_db->loadObjectList();
+				$query = "insert into #__diashow_visibility (diashow_id, menu_id) values ('" . $diaShowId . "', '" . $val . "')";
+				$db->setQuery( $query );
+				$db->loadObjectList();
 			}
 		}	
 		return true;
@@ -94,6 +101,7 @@ class DiashowModelDiashow extends JModelAdmin{
 		$data = JFactory::getApplication()->getUserState('com_diashow.edit.diashow.data', array());
 		if (empty($data)){
 			$data = $this->getItem();
+			$this->new = true;
 		}
 		return $data;
 	}
@@ -110,6 +118,8 @@ class DiashowModelDiashow extends JModelAdmin{
 		$user = JFactory::getUser();
 
 		if (!empty($record->id)) {
+			$row = JTable::getInstance('Diashow_visibility', 'DiashowTable');
+			$row->delete($record->id);
 			return $user->authorise('core.delete', 'com_diashow');
 		}
 		else {
@@ -138,6 +148,9 @@ class DiashowModelDiashow extends JModelAdmin{
 			$menus[] = JHTML::_( 'select.option', $menu->id, $menu->alias . " \t\t\t => " . $menu->menutype . "");
 		}
 
+		if($data->id == ""){
+			$data->id = 0;
+		}
 		$query = "SELECT #__menu.id as value , #__menu.alias, #__menu.menutype FROM #__diashow_visibility LEFT JOIN #__menu ON #__menu.id = menu_id WHERE diashow_id = '" . $data->id . "'";
 
 		$this->_db->setQuery( $query );
