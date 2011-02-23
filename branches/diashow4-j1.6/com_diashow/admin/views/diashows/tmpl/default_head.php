@@ -37,7 +37,7 @@ $saveOrder	= 'ordering';
         <th>
             <?php echo JHtml::_('grid.sort',  'JGRID_HEADING_ORDERING', 'ordering', $listDirn, $listOrder);
 		if ($canOrder && $saveOrder) {
-			echo JHtml::_('grid.order',  $this->items, 'filesave.png', 'diashow.saveorder');
+			echo JHtml::_('grid.order',  $this->items, 'filesave.png', 'diashows.saveorder');
 		} ?>
         </th>
 </tr>

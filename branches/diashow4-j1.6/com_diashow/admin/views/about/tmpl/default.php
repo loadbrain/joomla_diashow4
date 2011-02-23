@@ -79,7 +79,7 @@ JHtml::_('behavior.tooltip');
 	</tbody>
     <tfoot>
 					<tr>
-						<td colspan="4">RWCards Version <?php echo $this->version; ?> - &copy 2011</td>
+						<td colspan="4">DiaShow Version <?php echo $this->version; ?> - &copy 2011</td>
 					</tr>
 				</tfoot>
         </table>
