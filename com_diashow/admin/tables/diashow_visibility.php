@@ -15,7 +15,7 @@ class DiashowTableDiashow_visibility  extends JTable{
          * @param object Database connector object
          */
         function __construct(&$db){
-                parent::__construct('#__diashow_visibility', 'id', $db);
+                parent::__construct('#__diashow_visibility', 'diashow_id', $db);
         }
 }
 ?>
