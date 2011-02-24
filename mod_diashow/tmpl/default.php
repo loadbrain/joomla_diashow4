@@ -15,7 +15,7 @@
 	
     <?php
     foreach($diaShowData as $val){
-    $diaShow = "{imgName: '" . JURI::base() . 'images/stories/diashow/' . $val->image . "', imgText: '" . ereg_replace("\n", "", nl2br($val->title)) . "', imgLink: '" . $val->link . "', imgTarget: '" . $val->target . "'}";
+    $diaShow = "{imgName: '" . JURI::base() . 'images/diashow/' . $val->image . "', imgText: '" . ereg_replace("\n", "", nl2br($val->title)) . "', imgLink: '" . $val->link . "', imgTarget: '" . $val->target . "'}";
     ?>                   
     imgObject.push(<?php echo $diaShow; ?>);
     <?php
