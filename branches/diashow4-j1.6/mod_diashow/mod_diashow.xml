@@ -2,7 +2,7 @@
 <extension
 	type="module"
 	version="1.6.0"
-	client="administrator">
+	client="site">
 	<name>mod_diashow</name>
 	<author>Ralf weber</author>
 	<creationDate>25.02.2011</creationDate>
