@@ -122,10 +122,10 @@ class DiashowModelDiashows extends JModelList{
 				$row = &$this->_whereToShow;
 				if ($row[$a]->menu_id == 0)
 				{
-					$linkedTo[$i]  .= JText::_( 'DIASHOW_SHOW_ON_ALL_PAGES') . "<br />";
+					@$linkedTo[$i]  .= JText::_( 'DIASHOW_SHOW_ON_ALL_PAGES') . "<br />";
 				continue;
 				}
-					$linkedTo[$i] .= $row[$a]->alias . " (" . $row[$a]->menutype . ")<br />"; 
+					@$linkedTo[$i] .= $row[$a]->alias . " (" . $row[$a]->menutype . ")<br />"; 
 			}
 		}
 		return $linkedTo;
