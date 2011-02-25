@@ -13,15 +13,11 @@ JHtml::_('behavior.formvalidation');
 <fieldset class="adminform"><legend><?php echo JText::_( 'COM_DIASHOW_DETAILS' ); ?></legend>
 <ul class="adminformlist">
 <?php
-var_dump($this->menu);
+
 foreach($this->form->getFieldset('details') as $field): ?>
 	<li><?php echo $field->label;echo $field->input;?></li>
-	<?php
-	if($field->type == 'ImageList'){
-		echo "<br/><li><img id='rwcardChosenImage' /><br/></li>";
-	}
-	?>
 	<?php endforeach; ?>
+	<li><label><?php echo JText::_('COM_DIASHOW_HEADING_SHOW_UNDER'); ?></label><?php echo $this->menu['lists']['menus'];?></li>
 </ul>
 
 </div>
