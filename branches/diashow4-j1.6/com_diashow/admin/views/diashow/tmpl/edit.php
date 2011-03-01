@@ -17,7 +17,7 @@ JHtml::_('behavior.formvalidation');
 foreach($this->form->getFieldset('details') as $field): ?>
 	<li><?php echo $field->label;echo $field->input;?></li>
 	<?php endforeach; ?>
-	<li><label><?php echo JText::_('COM_DIASHOW_HEADING_SHOW_UNDER'); ?></label><?php echo $this->menu['lists']['menus'];?></li>
+	<li><label class="hasTip required" for="jform_menu_id" id="jform_menu_id-lbl"><?php echo JText::_('COM_DIASHOW_HEADING_SHOW_UNDER'); ?><span class="star">&nbsp;*</span></label><?php echo $this->menu['lists']['menus'];?></li>
 </ul>
 
 </div>

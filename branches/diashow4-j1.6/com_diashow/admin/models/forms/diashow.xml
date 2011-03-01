@@ -26,7 +26,7 @@
 						directory="../images/diashow"
                         validate="image"
 						required="true"
-                />				
+                />
                 <field
                         name="link"
                         type="text"
@@ -40,14 +40,6 @@
 					<option	value="_self">_self</option>
 					<option	value="_top">_top</option>
 				</field>
-                <field
-                        name="menu_id"
-                        type="sql"
-                        label="COM_DIASHOW_MENU_ENTRY"
-                        description="COM_DIASHOW_MENU_ENTRY_DESC"
-						query="SELECT distinct id, alias, menutype FROM #__menu order by #__menu.alias, #__menu.menutype, #__menu.ordering" key_field="id"  value_field="alias"
-						default="menu_id"
-                />
 
 
 			<field name="published" type="list" label="COM_DIASHOW_FIELD_PUBLISHED_LABEL" description="COM_DIASHOW_FIELD_PUBLISHED_DESC" class="inputbox" size="1" Default="1">

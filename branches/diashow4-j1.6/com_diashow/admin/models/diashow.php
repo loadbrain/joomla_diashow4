@@ -22,10 +22,10 @@ class DiashowModelDiashow extends JModelAdmin{
 
 		return JTable::getInstance($type, $prefix, $config);
 	}
-	
-	
+
+
 	function save(){
-	
+
 		$db =& JFactory::getDBO();
 		$data = JRequest::get( 'post' );
 
@@ -40,7 +40,7 @@ class DiashowModelDiashow extends JModelAdmin{
 			$query = "delete from #__diashow_visibility where #__diashow_visibility.diashow_id = '" . (int)$data["jform"]['id'] . "'";
 			$db->setQuery( $query );
 			$db->loadObjectList();
-				
+
 			foreach ($data['wheretolink'] as $val)
 			{
 				$query = "insert into #__diashow_visibility (diashow_id, menu_id) values ('" . $data["jform"]['id'] . "', '" . $val . "')";
@@ -52,7 +52,7 @@ class DiashowModelDiashow extends JModelAdmin{
 		{
 			$query = "insert into #__diashow (title, image, link, target, published) values ('". $data['jform']['title'] . "', '" . $data['jform']['image'] . "', '". $data['jform']['link'] . "', '" . $data['jform']['target'] . "', '". $data['jform']['published']. "')";
 			$db->setQuery($query);
-			$db->loadObjectList();	
+			$db->loadObjectList();
 			$diaShowId = $db->insertid();
 			foreach ($data['wheretolink'] as $val)
 			{
@@ -60,7 +60,7 @@ class DiashowModelDiashow extends JModelAdmin{
 				$db->setQuery( $query );
 				$db->loadObjectList();
 			}
-		}	
+		}
 		return true;
 	}
 	/**
@@ -169,7 +169,7 @@ class DiashowModelDiashow extends JModelAdmin{
 		 	}
 		 }
 
-		$lists['menus'] = JHTML::_('select.genericlist', $menus, "wheretolink[]", "class=\"inputbox\" multiple=\"true\"" , 'value', 'text',  $this->_selectedMenu);
+		$lists['menus'] = JHTML::_('select.genericlist', $menus, "wheretolink[]", "class=\"inputbox validate-menu_id required\" aria-invalid=\"true\" multiple=\"true\"" , 'value', 'text',  $this->_selectedMenu);
 
 		$this->_data['lists'] = $lists;
 
