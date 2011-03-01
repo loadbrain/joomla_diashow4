@@ -50,13 +50,18 @@ class DiashowViewDiashows extends JView{
 		require_once JPATH_COMPONENT.DS.'helpers'.DS.'diashowhelper.php';
 
 		$user		= JFactory::getUser();
-		$this->canDo		= DiashowHelper::getActions($this->state->get('filter.id'));
+		$this->canDo		= DiashowHelper::getActions();
 
 		JToolBarHelper::title(JText::_('COM_DIASHOW_MANAGER_DIASHOWS'));
-		if ($this->canDo->get('core.edit')){
-			JToolBarHelper::deleteListX('', 'diashows.delete');
-			JToolBarHelper::editListX('diashow.edit');
+
+		if ($this->canDo->get('core.create')){
 			JToolBarHelper::addNewX('diashow.add');
+		}
+		if ($this->canDo->get('core.edit')){
+			JToolBarHelper::editListX('diashow.edit');
+		}
+		if ($this->canDo->get('core.delete')){
+			JToolBarHelper::deleteListX('', 'diashows.delete');
 		}
 	}
 
