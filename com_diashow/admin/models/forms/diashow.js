@@ -5,7 +5,15 @@ window.addEvent('domready', function(){
     });
 
     document.formvalidator.setHandler('image', function(value){
-        regex = /^[\w\d\W]+$/;
+    	regex = /[\d\w].+\s*/;
         return regex.test(value);
     });
+
+    document.formvalidator.setHandler('menu_id', function(value){
+    	regex = //;
+        return regex.test(value);
+    });
+
+
+
 });
