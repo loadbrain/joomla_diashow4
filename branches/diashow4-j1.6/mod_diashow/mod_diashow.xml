@@ -3,7 +3,7 @@
 	type="module"
 	version="1.6.0"
 	client="site">
-	<name>mod_diashow</name>
+	<name>MOD_DIASHOW</name>
 	<author>Ralf weber</author>
 	<creationDate>25.02.2011</creationDate>
 	<copyright>(C) 2008 LoadBrain. All rights reserved.</copyright>
