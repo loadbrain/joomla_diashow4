@@ -3,7 +3,7 @@
 	type="module"
 	version="1.6.0"
 	client="site">
-	<name>MOD_DIASHOW</name>
+	<name>DIASHOW4 Modul</name>
 	<author>Ralf weber</author>
 	<creationDate>25.02.2011</creationDate>
 	<copyright>(C) 2008 LoadBrain. All rights reserved.</copyright>
@@ -11,7 +11,7 @@
 	<authorEmail>ralf@weberr.de</authorEmail>
 	<authorUrl>www.weberr.de</authorUrl>
 	<version>4.0.1</version>
-	<description>MOD_DIASHOW_XML_DESCRIPTION</description>
+	<description>DiaShow4 Module - &#169; 2009 by Ralf Weber - LoadBrain</description>
 
 	<files>
 		<filename module="mod_diashow">mod_diashow.php</filename>
