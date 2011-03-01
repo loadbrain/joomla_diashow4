@@ -26,8 +26,8 @@
 	<languages>
 		<language tag="en-GB">languages/en-GB/en-GB.mod_diashow.ini</language>
 		<language tag="en-GB">languages/en-GB/en-GB.mod_diashow.sys.ini</language>
-	</languages>	 
- 
+	</languages>
+
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
@@ -41,19 +41,19 @@
 				<field name="optionalRandomOrder" type="radio" default="R" label="Show pictures in random order" description="An optional parameter specifying whether to randomize the display order of the images. Set it to R to randomize, or remove this parameter (unset) to not.">
 					<option value="R">Random order</option>
 					<option value="C">In correct order</option>
-				</field>		
-				<field name="@spacer" type="spacer" />
+				</field>
+				<field type="spacer" />
 				<field name="showIt" type="radio" default="1" label="Show the image in full size on triggering mousewheel while mouseover?">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
-				</field>		
+				</field>
 				<field name="xPos" type="text" default="30px" label="The xpos of the full image relative to the container" description="The xpos of the full image relative to the container" />
-				<field name="yPos" type="text" default="30px" label="The ypos of the full image relative to the container" description="The ypos of the full image relative to the container" />	
+				<field name="yPos" type="text" default="30px" label="The ypos of the full image relative to the container" description="The ypos of the full image relative to the container" />
 
-				<field name="height" type="text" default="200px" label="The height of the full image" description="The heigth of the full image" />	
-				<field name="width" type="text" default="200px" label="The width of the full image" description="The width of the full image" />	
+				<field name="height" type="text" default="200px" label="The height of the full image" description="The heigth of the full image" />
+				<field name="width" type="text" default="200px" label="The width of the full image" description="The width of the full image" />
 				<field name="borderCss" type="text" default="1px dashed black" label="The css for the hint to view the full image" description="The css for the hint to view the full image" />
-			</fieldset>	
+			</fieldset>
 		</fields>
 	</config>
 </extension>
