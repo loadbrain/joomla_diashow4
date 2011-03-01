@@ -67,15 +67,20 @@ class DiashowViewDiashow extends JView
                 JRequest::setVar('hidemainmenu', true);
                 $user		= JFactory::getUser();
                 $checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $user->get('id'));
-                $canDo		= DiashowHelper::getActions($this->state->get('filter.id'), $this->item->id);
+                $canDo		= DiashowHelper::getActions($this->item->id);
                 $isNew = ($this->item->id == 0);
         		// If not checked out, can save the item.
 				if (!$checkedOut && $canDo->get('core.edit')){
 					JToolBarHelper::apply('diashow.apply', 'JTOOLBAR_APPLY');
 					JToolBarHelper::save('diashow.save', 'JTOOLBAR_SAVE');
-					JToolBarHelper::addNew('diashow.save2new', 'JTOOLBAR_SAVE_AND_NEW');
+					if ($canDo->get('core.create')){
+						JToolBarHelper::addNew('diashow.save2new', 'JTOOLBAR_SAVE_AND_NEW');
+					}
 				}
 
+				if ($canDo->get('core.create')){
+					JToolBarHelper::custom('diashow.save2copy', 'save-copy.png', 'save-copy_f2.png', 'JTOOLBAR_SAVE_AS_COPY', false);
+                }
 				if (empty($this->item->id))  {
 					JToolBarHelper::cancel('diashow.cancel', 'JTOOLBAR_CANCEL');
 				}

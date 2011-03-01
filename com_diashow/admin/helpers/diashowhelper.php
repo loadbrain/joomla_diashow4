@@ -3,15 +3,15 @@ defined('_JEXEC') or die;
 
 class DiashowHelper
 {
-	public static function getActions($bookId = 0)
+	public static function getActions($messageId = 0)
 	{
 		$user	= JFactory::getUser();
 		$result	= new JObject;
 
-		if (empty($bookId)) {
+		if (empty($messageId)) {
 			$assetName = 'com_diashow';
 		} else {
-			$assetName = 'com_diashow.diashow'.(int) $bookId;
+			$assetName = 'com_diashow.diashow'.(int) $messageId;
 		}
 
 		$actions = array(
