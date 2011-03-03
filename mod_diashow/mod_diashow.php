@@ -13,6 +13,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+require_once (dirname(__FILE__).DS.'helper.php');
+$diaShowData = modDiashowHelper::getDiaShowData($params);
 $containerWidth = (int) $params->get( 'slideshow_width' );
 $containerHeight = (int) $params->get( 'slideshow_height' );
 $containerBorder = trim($params->get( 'containerBorder' ));
@@ -27,9 +29,7 @@ $timerInterval = (int)$params->get( 'delay' );
 $optionalRandomOrder 	= trim($params->get( 'optionalRandomOrder') );
 $moduleclass_sfx = trim($params->get( 'moduleclass_sfx') );
 
-// Include the syndicate functions only once
-require_once (dirname(__FILE__).DS.'helper.php');
-$diaShowData = modDiashowHelper::getDiaShowData($params);
+
 require(JModuleHelper::getLayoutPath('mod_diashow'));
 
 ?>
