@@ -26,7 +26,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	
     <?php
     foreach($diaShowData as $val){
-    $diaShow = "{imgName: '" . JURI::base() . 'images/diashow/' . $val->image . "', imgText: '" . ereg_replace("\n", "", nl2br($val->title)) . "', imgLink: '" . $val->link . "', imgTarget: '" . $val->target . "'}";
+    $diaShow = "{imgName: '" . JURI::base() . 'images/diashow/' . $val->image . "', imgText: '" . preg_replace("/\n/", "", nl2br($val->title)) . "', imgLink: '" . $val->link . "', imgTarget: '" . $val->target . "'}";
     ?>                   
     imgObject.push(<?php echo $diaShow; ?>);
     <?php
