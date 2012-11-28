@@ -78,6 +78,7 @@ class DiashowViewDiashow extends JViewLegacy
                 $isNew = ($this->item->id == 0);
         		// If not checked out, can save the item.
 				if (!$checkedOut && $canDo->get('core.edit')){
+					JToolBarHelper::title($isNew ? JText::_('COM_DIASHOW_CREATING') : JText::_('COM_DIASHOW_EDITING'));
 					JToolBarHelper::apply('diashow.apply', 'JTOOLBAR_APPLY');
 					JToolBarHelper::save('diashow.save', 'JTOOLBAR_SAVE');
 					if ($canDo->get('core.create')){
