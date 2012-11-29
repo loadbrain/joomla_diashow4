@@ -12,8 +12,8 @@
                     showIt: true,
                     xPos: "300px",
                     yPos: "300px",
-                    height: "200px",
-                    width: "200px",
+					height: 'auto',
+					width: 'auto',
                     borderCss: "1px solid red;"
                 }
             };
@@ -148,13 +148,14 @@
                     if (s.showIt) {			
                         a(this).bind("mousewheel", function (w, x) {
                             if (x > 0) { 				
-                                a("#ds_fullView").empty().append('<img src="' + a(h[e]).attr("src") + '">').css({
+							
+                                a("#ds_fullView").empty().append('<img src="' + a(h[e]).attr("src") + '" width="' + c.showFullImage.width + '" height="' +  c.showFullImage.height + '">').css({
                                     left: s.xPos,
                                     top: s.yPos,
-                                    width: s.width,
-                                    height: s.height,
+                                    width: c.showFullImage.width,
+                                    height: c.showFullImage.height,
                                     opacity: 1,
-                                    padding: "0px",
+                                    padding: "5px",
                                     margin: "0px",
                                     border: s.borderCss,
                                     "z-index": 1
