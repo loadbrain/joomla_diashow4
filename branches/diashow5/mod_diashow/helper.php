@@ -1,6 +1,6 @@
 <?php
 /*------------------------------------------------------------------------
-# mod_diashow - DiaShow5 - Joomla 3.x
+# mod_diashow - DiaShow4
 # ------------------------------------------------------------------------
 # author Ralf Weber
 # copyright Copyright (C) 2011 http://www.weberr.de/. All Rights Reserved.
