@@ -24,7 +24,7 @@ class modDiashowHelper
 		$db->setQuery($query);
 		$rows = $db->loadObjectList();
         if ($params->get( 'optionalRandomOrder') == "R"){
-            shuffle(&$rows);
+            shuffle($rows);
         }
 
 		return $rows;
