@@ -142,25 +142,24 @@ class DiashowModelDiashows extends JModelList
         // Put the corresponding menus in the array
         for ($i=0, $n=count($this->_data['rows']); $i < $n; $i++) {
             $row = &$this->_data['rows'];
-            
+
             if (isset($row[0]->id)) {
                 $query = "SELECT distinct alias, menutype, diashow_id, menu_id FROM #__diashow_visibility LEFT JOIN  #__menu ON #__menu.id = menu_id WHERE diashow_id = " . $row[$i]->id . " order by #__menu.menutype";
             } else {
                 $query = "SELECT distinct alias, menutype, diashow_id, menu_id FROM #__diashow_visibility LEFT JOIN  #__menu ON #__menu.id = menu_id order by #__menu.menutype";
             }
-
-            
+    
             $this->_db->setQuery($query);
             $this->_whereToShow = $this->_db->loadObjectList();
-
-        
+            
             for ($a=0, $b=count($this->_whereToShow); $a < $b; $a++) {
                 $row = &$this->_whereToShow;
+
                 if ($row[$a]->menu_id == 0) {
-                    @$linkedTo[$i]  .= JText::_('DIASHOW_SHOW_ON_ALL_PAGES') . "<br />";
+                    $linkedTo[$row[$a]->diashow_id]  = JText::_('DIASHOW_SHOW_ON_ALL_PAGES') . "<br />";
                     continue;
                 }
-                @$linkedTo[$i] .= $row[$a]->alias . " (" . $row[$a]->menutype . ")<br />";
+                @$linkedTo[$row[$a]->diashow_id] .= $row[$a]->alias . " (" . $row[$a]->menutype . ")<br />";
             }
         }
         return $linkedTo;

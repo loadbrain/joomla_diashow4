@@ -9,53 +9,51 @@
 # Technical Support: Forum - http://www.weberr.de/
 -------------------------------------------------------------------------*/
 // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' ); 
+defined('_JEXEC') or die('Restricted access');
 // import the Joomla modellist library
 jimport('joomla.application.component.modellist');
-jimport( 'joomla.filesystem.folder' );
+jimport('joomla.filesystem.folder');
 /**
  * DiashowModelAbout Model
  */
-class DiashowModelAbout extends JModelList{
-	
+class DiashowModelAbout extends JModelList
+{
+    
 
-	
-	/**
-	 * Method to get RWCard Version
-	 * @return string Version of RWCards
-	 */
-	function getDiashowVersion(){
-		$folder = JPATH_ADMINISTRATOR .DS. 'components'.DS.'com_diashow';
-		if (JFolder::exists($folder)) {
-			$xmlFilesInDir = JFolder::files($folder, '.xml$');
-		} else {
-			$folder = JPATH_SITE .DS. 'components'.DS.'com_diashow';
-			if (JFolder::exists($folder)) {
-				$xmlFilesInDir = JFolder::files($folder, '.xml$');
-			} else {
-				$xmlFilesInDir = null;
-			}
-		}
+    
+    /**
+     * Method to get RWCard Version
+     * @return string Version of RWCards
+     */
+    public function getDiashowVersion()
+    {
+        $folder = JPATH_ADMINISTRATOR .DS. 'components'.DS.'com_diashow';
+        if (JFolder::exists($folder)) {
+            $xmlFilesInDir = JFolder::files($folder, '.xml$');
+        } else {
+            $folder = JPATH_SITE .DS. 'components'.DS.'com_diashow';
+            if (JFolder::exists($folder)) {
+                $xmlFilesInDir = JFolder::files($folder, '.xml$');
+            } else {
+                $xmlFilesInDir = null;
+            }
+        }
 
-		$xml_items = '';
-		if (count($xmlFilesInDir))
-		{
-			foreach ($xmlFilesInDir as $xmlfile)
-			{
-				if ($data = JApplicationHelper::parseXMLInstallFile($folder.DS.$xmlfile)) {
-					foreach($data as $key => $value) {
-						$xml_items[$key] = $value;
-					}
-				}
-			}
-		}
-		
-		if (isset($xml_items['version']) && $xml_items['version'] != '' ) {
-			return $xml_items['version'];
-		} else {
-			return '';
-		}
-	}	
-	
+        $xml_items = array();
+        if (count($xmlFilesInDir)) {
+            foreach ($xmlFilesInDir as $xmlfile) {
+                if ($data = JApplicationHelper::parseXMLInstallFile($folder.DS.$xmlfile)) {
+                    foreach ($data as $key => $value) {
+                        $xml_items[$key] = $value;
+                    }
+                }
+            }
+        }
+        
+        if (isset($xml_items['version']) && $xml_items['version'] != '') {
+            return $xml_items['version'];
+        } else {
+            return '';
+        }
+    }
 }
-?>
