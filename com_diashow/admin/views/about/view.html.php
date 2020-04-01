@@ -9,61 +9,59 @@
 # Technical Support: Forum - http://www.weberr.de/
 -------------------------------------------------------------------------*/
 // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' ); 
+defined('_JEXEC') or die('Restricted access');
 
 
 /**
  * DiashowViewAbout View
  */
-class DiashowViewAbout extends JViewLegacy{
-	/**
-	 * Rwcards view display method
-	 * @return void
-	 */
-	function display($tpl = null){
-		// Get data from the model
+class DiashowViewAbout extends JViewLegacy
+{
+    /**
+     * Rwcards view display method
+     * @return void
+     */
+    public function display($tpl = null)
+    {
+        // Get data from the model
 
-		// Check for errors.
-		if (count($errors = $this->get('Errors')))
-		{
-			JError::raiseError(500, implode('<br />', $errors));
-			return false;
-		}
-		// Set the toolbar
-		$this->addToolBar();
+        // Check for errors.
+        if (count($errors = $this->get('Errors'))) {
+            JError::raiseError(500, implode('<br />', $errors));
+            return false;
+        }
+        // Set the toolbar
+        $this->addToolBar();
 
-		//Get Version
-		$this->version =  $this->get('DiashowVersion');		
-		
-		
+        //Get Version
+        $this->version =  $this->get('DiashowVersion');
+        
+        
 
-		// Display the template
-		parent::display($tpl);
+        // Display the template
+        parent::display($tpl);
 
-		// Set the document
-		$this->setDocument();
+        // Set the document
+        $this->setDocument();
+    }
 
-	}
-
-	/**
-	 * Setting the toolbar
-	 */
-	protected function addToolBar()
-	{
-		JToolBarHelper::title(JText::_('COM_DIASHOW_MANAGER_ABOUT'));
-		JToolBarHelper::cancel('diashow.cancel', 'JTOOLBAR_CANCEL');
-	}
-	
-        /**
-         * Method to set up the document properties
-         *
-         * @return void
-         */
-        protected function setDocument() 
-        {
-                $document = JFactory::getDocument();
-                $document->setTitle(JText::_('COM_DIASHOW_MANAGER_DIASHOWS'));
-        }	
-
+    /**
+     * Setting the toolbar
+     */
+    protected function addToolBar()
+    {
+        require_once JPATH_COMPONENT.DS.'helpers'.DS.'diashowhelper.php';
+        JToolBarHelper::title(JText::_('COM_DIASHOW_MANAGE_UPLOADS'));
+        JToolBarHelper::cancel('diashow.cancel', 'JTOOLBAR_CANCEL');
+    }
+    /**
+     * Method to set up the document properties
+     *
+     * @return void
+     */
+    protected function setDocument()
+    {
+        $document = JFactory::getDocument();
+        $document->setTitle(JText::_('COM_DIASHOW_MANAGER_DIASHOWS'));
+    }
 }
-?>

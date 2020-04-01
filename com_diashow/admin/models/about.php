@@ -49,7 +49,7 @@ class DiashowModelAbout extends JModelList
                 }
             }
         }
-        
+
         if (isset($xml_items['version']) && $xml_items['version'] != '') {
             return $xml_items['version'];
         } else {
