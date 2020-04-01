@@ -9,7 +9,7 @@
 # Technical Support: Forum - http://www.weberr.de/
 -------------------------------------------------------------------------*/
 // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' ); 
+defined('_JEXEC') or die('Restricted access');
 
 // import Joomla controller library
 jimport('joomla.application.component.controller');
@@ -17,24 +17,22 @@ jimport('joomla.application.component.controller');
 /**
  * General Controller of Diashow component
  */
-class DiashowController extends JControllerLegacy{
-        /**
-         * display task
-         *
-         * @return void
-         */
-        function display($cachable = false, $urlparams = false){
-                // set default view if not set
-                JRequest::setVar('view', JRequest::getCmd('view', 'diashows'));
+class DiashowController extends JControllerLegacy
+{
+    /**
+     * display task
+     *
+     * @return void
+     */
+    public function display($cachable = false, $urlparams = false)
+    {
+        // set default view if not set
+        JRequest::setVar('view', JRequest::getCmd('view', 'diashows'));
 
-                // call parent behavior
-                parent::display($cachable);
+        // call parent behavior
+        parent::display($cachable);
 
-                // Set the submenu
-                DiashowHelper::addSubmenu('messages');
-
-        }
+        // Set the submenu
+        DiashowHelper::addSubmenu('messages');
+    }
 }
-
-
-?>
